@@ -1,0 +1,9 @@
+
+cmake-build-debug/
+cmake-build-release/
+.idea/
+
+*.o
+*.dll
+*.lib
+*.a
