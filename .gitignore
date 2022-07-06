@@ -2,7 +2,8 @@
 cmake-build-debug/
 cmake-build-release/
 .idea/
-
+!build
+!obj
 *.o
 *.dll
 *.lib
