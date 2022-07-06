@@ -516,7 +516,7 @@ int EC_FormatRemove_s(char* outRemoved, size_t destLen, const char* cpFormat){
         }
     }
     if (strlen(buffer) + 1 <= destLen) {
-        if (strncpy(outRemoved, buffer, destLen) != 0) {
+        if (strncpy(outRemoved, buffer, destLen) == NULL) {
             res = -1;
             goto cleanup;
         }
