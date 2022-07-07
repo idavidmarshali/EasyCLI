@@ -131,6 +131,7 @@ typedef enum EC_ColorModeEnum {
     EC_COLORMODE_Disabled = 0,
     EC_COLORMODE_Enabled  = 1
 } EC_ColorModeEnum;
+
 typedef enum EC_ClearScreenEnum {
     EC_CLEARSCREEN_CursorToEnd   = 0,    //  Clear from cursor to the End of the screen
     EC_CLEARSCREEN_CursorToStart = 1,    //  Clear from cursor to the beginning of the screen;
@@ -207,53 +208,53 @@ EC_ResultEnum EC_ClearLine(EC_ClearLineEnum mode);
 // --- {Cursor Related Functions} ---
 /* moves the cursor up by X lines
  * Parameter :
- *  - [0] int count -> the count of lines to move the cursor up by.
+ *  - [0] int n -> move the cursor up n times
  *
  *  NO-RETURN
  */
-void EC_CursorMoveUp(int count);
+void EC_CursorMoveUp(int n);
 /* moves the cursor down by X lines
  * Parameter :
- *  - [0] int count -> the count of lines to move the cursor down by.
+ *  - [0] int n -> move the cursor down n times
  *
  *  NO-RETURN
  */
-void EC_CursorMoveDown(int count);
+void EC_CursorMoveDown(int n);
 /* moves the cursor forward by X lines
  * Parameter :
- *  - [0] int count -> the count of lines to move the cursor forward by.
+ *  - [0] int n -> move the cursor forward n times
  *
  *  NO-RETURN
  */
-void EC_CursorMoveForward(int count);
+void EC_CursorMoveForward(int n);
 /* moves the cursor backward by X lines
  * Parameter :
- *  - [0] int count -> the count of lines to move the cursor backward by.
+ *  - [0] int n -> move the cursor backward n times
  *
  *  NO-RETURN
  */
-void EC_CursorMoveBackward(int count);
+void EC_CursorMoveBackward(int n);
 /* moves the cursor to next X line.
  * Parameter :
- *  - [0] int count -> the count of lines to go forward too.
+ *  - [0] int n -> move the cursor to the n line after current line
  *
  *  NO-RETURN
  */
-void EC_CursorMoveNextLine(int count);
+void EC_CursorMoveNextLine(int n);
 /* moves the cursor to previous X lines
  * Parameter :
- *  - [0] int count -> the count of lines to go back too.
+ *  - [0] int n -> move the cursor to the n line before current line
  *
  *  NO-RETURN
  */
-void EC_CursorMovePrevLine(int count);
+void EC_CursorMovePrevLine(int n);
 /* moves the cursor to the X column with keeping cursors row position
  * Parameter :
- *  - [0] int column -> the column to move to.
+ *  - [0] int n -> move the cursor to column n without changing its vertical position
  *
  *  NO-RETURN
  */
-void EC_CursorMoveHorizontalAbs(int column);
+void EC_CursorMoveHorizontalAbs(int n);
 /* Hides the cursor.
  *  NO-PARAM
  *  NO-RETURN
@@ -356,16 +357,16 @@ void EC_ScreenEnableAsciiCharSet(void);
 void EC_ScreenEnableDecCharSet(void);
 /* scrolls up the screen X times.
  *  Parameters :
- *   -[0] int count -> the scroll up count.
+ *   -[0] int n -> the scroll up n times.
  *  NO-RETURN
  */
-void EC_ScreenScrollUp(int count);
+void EC_ScreenScrollUp(int n);
 /* scrolls down the screen X times.
  *  Parameters :
- *   -[0] int count -> the scroll down count.
+ *   -[0] int n -> the scroll down n times.
  *  NO-RETURN
  */
-void EC_ScreenScrollDown(int count);
+void EC_ScreenScrollDown(int n);
 
 // --- {Other Functions} ---
 /* sets the title of the console window to the specified string.
@@ -484,3 +485,51 @@ EC_ResultEnum EC_ScreenSetConsoleColorW(EC_WindowsColorsEnum nColor);
 #endif
 
 #endif //EASYCLI_H
+
+#ifdef EC_NO_PREFIX
+    #define Print EC_Print
+    #define PrintColored EC_PrintColored
+    #define SetColorMode EC_SetColorMode
+    #define ClearScreen EC_ClearScreen
+    #define ClearLine EC_ClearLine
+    #define CursorMoveUp EC_CursorMoveUp
+    #define CursorMoveDown EC_CursorMoveDown
+    #define CursorMovForward EC_CursorMovForward
+    #define CursorMoveBackward EC_CursorMoveBackward
+    #define CursorMoveNextLine EC_CursorMoveNextLine
+    #define CursorMovePrevLine EC_CursorMovePrevLine
+    #define CursorMoveHorizontalAbs EC_CursorMoveHorizontalAbs
+    #define CursorHide EC_CursorHide
+    #define CursorShows EC_CursorShows
+    #define CursorEnableBlink EC_CursorEnableBlink
+    #define CursorDisableBlink EC_CursorDisableBlink
+    #define CursorSetPos EC_CursorSetPos
+    #define CursorSavePos EC_CursorSavePos
+    #define CursorRestorePos EC_CursorRestorePos
+    #define ScreenSetForegroundRGB EC_ScreenSetForegroundRGB
+    #define ScreenSetBackgroundRGB EC_ScreenSetBackgroundRGB
+    #define ScreenSetForegroundINDX EC_ScreenSetForegroundINDX
+    #define ScreenSetBackgroundINDX EC_ScreenSetBackgroundINDX
+    #define ScreenEnableAlterBuff EC_ScreenEnableAlterBuff
+    #define ScreenDisableAlterBuff EC_ScreenDisableAlterBuff
+    #define ScreenEnableAsciiCharSet EC_ScreenEnableAsciiCharSet
+    #define ScreenEnableDecCharSet EC_ScreenEnableDecCharSet
+    #define ScreenScrollUp EC_ScreenScrollUp
+    #define ScreenScrollDown EC_ScreenScrollDown
+    #define ScreenScrollDown EC_ScreenScrollDown
+    #define SetWindowTitle EC_SetWindowTitle
+    #define SoftReset EC_SoftReset
+    #define Beep EC_Beep
+    #define PrintHyperLink EC_PrintHyperLink
+    #define CursorGetPosW EC_CursorGetPosW
+    #define ConsoleEnableVTMode EC_ConsoleEnableVTMode
+    #define ConsoleResetMode EC_ConsoleResetMode
+    #define ScreenSetConsoleColorW EC_ScreenSetConsoleColorW
+    #define Format_s EC_Format_s
+    #define FormatRemove_s EC_FormatRemove_s
+#endif // EC_NO_PREFIX
+
+#ifdef EC_OVERWRITE_PRINTF
+#undef printf
+#define printf EC_PrintColored
+#endif // EC_OVERWRITE_PRINTF

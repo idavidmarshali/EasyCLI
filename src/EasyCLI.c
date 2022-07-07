@@ -215,66 +215,66 @@ EC_ResultEnum EC_ClearLine(EC_ClearLineEnum mode){
 
 /* moves the cursor up by X lines
  * Parameter :
- *  - [0] int count -> the count of lines to move the cursor up by.
+ *  - [0] int n -> move the cursor up n times
  *
  *  NO-RETURN
  */
-void EC_CursorMoveUp(int count){
-    printf(EC_CSI_CUU, count);
+void EC_CursorMoveUp(int n){
+    printf(EC_CSI_CUU, n);
 }
 /* moves the cursor down by X lines
  * Parameter :
- *  - [0] int count -> the count of lines to move the cursor down by.
+ *  - [0] int n -> move the cursor down n times
  *
  *  NO-RETURN
  */
-void EC_CursorMoveDown(int count){
-    printf(EC_CSI_CUD, count);
+void EC_CursorMoveDown(int n){
+    printf(EC_CSI_CUD, n);
 }
 /* moves the cursor forward by X lines
  * Parameter :
- *  - [0] int count -> the count of lines to move the cursor forward by.
+ *  - [0] int n -> move the cursor forward n times
  *
  *  NO-RETURN
  */
-void EC_CursorMoveForward(int count){
-    printf(EC_CSI_CUF, count);
+void EC_CursorMoveForward(int n){
+    printf(EC_CSI_CUF, n);
 }
 /* moves the cursor backward by X lines
  * Parameter :
- *  - [0] int count -> the count of lines to move the cursor backward by.
+ *  - [0] int n -> move the cursor backward n times
  *
  *  NO-RETURN
  */
-void EC_CursorMoveBackward(int count){
-    printf(EC_CSI_CUB, count);
+void EC_CursorMoveBackward(int n){
+    printf(EC_CSI_CUB, n);
 }
 /* moves the cursor to next X line.
  * Parameter :
- *  - [0] int count -> the count of lines to go forward too.
+ *  - [0] int n -> move the cursor to the n line after current line
  *
  *  NO-RETURN
  */
-void EC_CursorMoveNextLine(int count){
-    printf(EC_CSI_CNL, count);
+void EC_CursorMoveNextLine(int n){
+    printf(EC_CSI_CNL, n);
 }
 /* moves the cursor to previous X lines
  * Parameter :
- *  - [0] int count -> the count of lines to go back too.
+ *  - [0] int n -> move the cursor to the n line before current line
  *
  *  NO-RETURN
  */
-void EC_CursorMovePrevLine(int count){
-    printf(EC_CSI_CPL, count);
+void EC_CursorMovePrevLine(int n){
+    printf(EC_CSI_CPL, n);
 }
 /* moves the cursor to the X column with keeping cursors row position
  * Parameter :
- *  - [0] int column -> the column to move to.
+ *  - [0] int n -> move the cursor to column n without changing its vertical position
  *
  *  NO-RETURN
  */
-void EC_CursorMoveHorizontalAbs(int column){
-    printf(EC_CSI_CHA, column);
+void EC_CursorMoveHorizontalAbs(int n){
+    printf(EC_CSI_CHA, n);
 }
 
 /* Hides the cursor.
@@ -409,19 +409,19 @@ void EC_ScreenEnableDecCharSet(void){
 }
 /* scrolls up the screen X times.
  *  Parameters :
- *   -[0] int count -> the scroll up count.
+ *   -[0] int n -> the scroll up n times.
  *  NO-RETURN
  */
-void EC_ScreenScrollUp(int count) {
-    printf(EC_CSI_SU, count);
+void EC_ScreenScrollUp(int n) {
+    printf(EC_CSI_SU, n);
 }
 /* scrolls down the screen X times.
  *  Parameters :
- *   -[0] int count -> the scroll down count.
+ *   -[0] int n -> the scroll down n times.
  *  NO-RETURN
  */
-void EC_ScreenScrollDown(int count) {
-    printf(EC_CSI_SD, count);
+void EC_ScreenScrollDown(int n) {
+    printf(EC_CSI_SD, n);
 }
 
 /* sets the title of the console window to the specified string.
@@ -751,7 +751,7 @@ EC_ResultEnum EC_ScreenSetConsoleColorW(EC_WindowsColorsEnum nColor) {
 EC_ResultEnum EC_ConsoleEnableVTMode(void){
     HANDLE hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
     if (hStdout == NULL) return EC_RES_NoHandle;
-    GetConsoleMode(hStdout, &EC_dwCosnoleOldMode);
+    if (!GetConsoleMode(hStdout, &EC_dwCosnoleOldMode)) return EC_RES_Failed;
     if (!SetConsoleMode(hStdout, ENABLE_PROCESSED_OUTPUT | ENABLE_VIRTUAL_TERMINAL_PROCESSING)) return EC_RES_Failed;
     return EC_RES_Success;
 }
