@@ -31,6 +31,7 @@ gcc test.c libEasyCLI.a
 - [**Enums Table**](#enums-table)
 - [**Function Table**](#function-table)
 - [**Modification Preprocessors**](#modification-preprocessors)
+- [**Compiling and building**](#compiling-and-building)
 
 -----------------
 ### Simple color printing and styling :
@@ -287,3 +288,18 @@ NOTE: `EC_ClearScreen()` and `EC_ClearLine()` will clear the screen without movi
         Print("{R}Hello World{0} in red"); // Success, no problem
     }
    ```
+  
+### Compiling and building
+
+for compiling you have 2 options:
+- using [build.cmd](../build.cmd) (windows) or [build.sh](../build.sh) (linux);
+- using Cmake with the provided [CmakeList.txt](../CMakeLists.txt)
+
+the cmd/bash files use `GCC` for compiling and linking.<br>
+[build.cmd](../build.cmd) and [build.sh](../build.sh) will both create static and dynamic libraries in the `build/` folder.
+
+
+NOTE: gcc needs to be added to the PATH in windows in order for the script to work.
+
+
+
