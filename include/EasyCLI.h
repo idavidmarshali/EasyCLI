@@ -103,22 +103,22 @@ SOFTWARE.
 // --- {ENUM DEF} ---
 
 typedef enum EC_4BITCOLOR {
-    EC_4BITCOLOR_FBlack = 30,
-    EC_4BITCOLOR_FRed,
-    EC_4BITCOLOR_FGreen,
-    EC_4BITCOLOR_FYellow,
-    EC_4BITCOLOR_FBlue,
-    EC_4BITCOLOR_FMagent,
-    EC_4BITCOLOR_FCyan,
-    EC_4BITCOLOR_FWhite,
-    EC_4BITCOLOR_BBlack = 40,
-    EC_4BITCOLOR_BRed,
-    EC_4BITCOLOR_BGreen,
-    EC_4BITCOLOR_BYellow,
-    EC_4BITCOLOR_BBlue,
-    EC_4BITCOLOR_BMagent,
-    EC_4BITCOLOR_BCyan,
-    EC_4BITCOLOR_BWhite
+    EC_4BITCOLOR_FBlack     = 30,
+    EC_4BITCOLOR_FRed       = 31,
+    EC_4BITCOLOR_FGreen     = 32,
+    EC_4BITCOLOR_FYellow    = 33,
+    EC_4BITCOLOR_FBlue      = 34,
+    EC_4BITCOLOR_FMagent    = 35,
+    EC_4BITCOLOR_FCyan      = 36,
+    EC_4BITCOLOR_FWhite     = 37,
+    EC_4BITCOLOR_BBlack     = 40,
+    EC_4BITCOLOR_BRed       = 41,
+    EC_4BITCOLOR_BGreen     = 42,
+    EC_4BITCOLOR_BYellow    = 43,
+    EC_4BITCOLOR_BBlue      = 44,
+    EC_4BITCOLOR_BMagent    = 45,
+    EC_4BITCOLOR_BCyan      = 46,
+    EC_4BITCOLOR_BWhite     = 47
 } EC_4BITCOLOR;
 typedef enum EC_ResultEnum {
     EC_RES_Success   = 0,
