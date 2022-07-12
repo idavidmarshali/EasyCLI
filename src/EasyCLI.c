@@ -546,7 +546,8 @@ int EC_Format_s(char* outFormatted, size_t destlen, const char* cpFormat){
     char* workingBuffer = calloc(workingBuffSize, sizeof(char));
     char* seqBuffer     = calloc(EC_MAX_SEQUENCE, sizeof(char));
     char* colorChar     = calloc(5, sizeof(char));
-    char currentColor, currentChar;
+    char currentColor   = 0;
+    char currentChar;
     if (workingBuffer == NULL || seqBuffer == NULL || colorChar == NULL){
         result = -1;
         goto cleanup;
