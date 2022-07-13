@@ -4,6 +4,9 @@
 
 
 int main(void){
+#ifdef _WIN32
+    EC_ConsoleEnableVTMode();
+#endif
     char* testColors = "RGYBMCW";
     EC_SetColorMode(1);
     printf("a colored block in all of EasyCLIs 4bit colors");
