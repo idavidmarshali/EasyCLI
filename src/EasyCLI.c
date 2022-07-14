@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-#include "../include/EasyCLI.h"
+#include "EasyCLI.h"
 #include <stdbool.h>
 #include <stdlib.h>
 #include <stddef.h>

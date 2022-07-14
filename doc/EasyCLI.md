@@ -1,4 +1,6 @@
-# EasyCLI Documentation
+<img src="../images/EasyCLI-ICON.png" width="150" align="middle">
+
+# EasyCLI Documentation 
 by [DavidMarshal](https://github.com/idavidmarshali)
 
 -----------------
