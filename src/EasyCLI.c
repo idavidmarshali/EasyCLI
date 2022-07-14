@@ -573,7 +573,7 @@ int EC_Format_s(char* outFormatted, size_t destlen, const char* cpFormat){
             } else
             {
                 seqStarted = false;
-                if (currentColor > 30) {
+                if (currentColor > 29) {
                     snprintf(colorChar, 5 * sizeof(char), "%dm", currentColor);
                     strncat(seqBuffer, colorChar,seqSize - 1);
                 } else {
@@ -600,9 +600,8 @@ int EC_Format_s(char* outFormatted, size_t destlen, const char* cpFormat){
         if (seqStarted){
 
             switch (currentChar) {
-                case EC_COLOR_DEFAULT:
-                    strncat(seqBuffer,  "40;", seqSize);
-                    currentColor += EC_4BITCOLOR_FWhite;
+                case EC_COLOR_BLACK:
+                    currentColor += EC_4BITCOLOR_FBlack;
                     break;
                 case EC_COLOR_RESET:
                     currentColor = 0;

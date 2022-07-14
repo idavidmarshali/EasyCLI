@@ -79,11 +79,11 @@ SOFTWARE.
 #define EC_CSI_DECTCEM_L EC_FE_CSI"?25l"    // CSI ? 25 l (DECTCEM) Cursor Hide
 #define EC_CSI_DECSTR EC_FE_CSI"!p"         // CSI n T    (SD) Soft Reset
 
-#define EC_COLOR_DEFAULT    'D' // Foreground white, background black
+#define EC_COLOR_BLACK      'B' // Same as black
 #define EC_COLOR_RED        'R'
 #define EC_COLOR_GREEN      'G'
 #define EC_COLOR_YELLOW     'Y'
-#define EC_COLOR_BLUE       'B'
+#define EC_COLOR_BLUE       'b'
 #define EC_COLOR_MAGENTA    'M'
 #define EC_COLOR_CYAN       'C'
 #define EC_COLOR_WHITE      'W'

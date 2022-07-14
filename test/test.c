@@ -2,15 +2,14 @@
 #include "EasyCLI.h"
 
 
-
 int main(void){
 #ifdef _WIN32
     EC_ConsoleEnableVTMode();
 #endif
-    char* testColors = "RGYBMCW";
-    EC_SetColorMode(1);
+    char* testColors = "BRGYMCWb";
+    EC_SetColorMode(EC_COLORMODE_Enabled);
     printf("a colored block in all of EasyCLIs 4bit colors");
-    for (int i = 0; i < 8; i++){
+    for (int i = 0; i < 9; i++){
         if (i % 3 == 0) printf("\n");
         EC_Print("{#%c}  {0}", testColors[i]);
     }
