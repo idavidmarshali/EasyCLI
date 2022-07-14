@@ -1,4 +1,4 @@
-<img src="images/EasyCLI-ICON.png" width="150">![languages](https://img.shields.io/badge/Supported%20Language-C%2FC%2B%2B-blue) ![version](https://img.shields.io/badge/Version-1.0-red?style=flat-square&logo=git)
+<img src="images/EasyCLI-ICON.png" width="150">![languages](https://img.shields.io/badge/Supported%20Language-C%2FC%2B%2B-blue) ![version](https://img.shields.io/badge/dynamic/json?color=red&label=Version&prefix=v&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Fidavidmarshali%2FEasyCLI%2Fmain%2Fversion.json?style=flat-square&logo=git)
 
 --------
 
