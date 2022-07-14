@@ -26,6 +26,10 @@ SOFTWARE.
 
 #include <stddef.h>
 
+#ifdef _cplusplus
+extern "C" {
+#endif
+
 #define EC_MAX_SEQUENCE     24
 #define EC_SEQUENCE_START   '{'
 #define EC_SEQUENCE_END     '}'
@@ -533,3 +537,7 @@ EC_ResultEnum EC_ScreenSetConsoleColorW(EC_WindowsColorsEnum nColor);
 #undef printf
 #define printf EC_PrintColored
 #endif // EC_OVERWRITE_PRINTF
+
+#ifdef _cplusplus
+}
+#endif
