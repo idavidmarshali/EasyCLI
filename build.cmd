@@ -15,8 +15,8 @@ ar rcs build/libEasyCLI.a obj/EasyCLIStatic.o
 echo "[32mCompiling completed[0m"
 echo "Deleting object files"
 cd obj/
-del EasyCLI.o
 del EasyCLIStatic.o EasyCLIShared.o
+cd ../
 echo [32mDONE![0m
 pause
 
