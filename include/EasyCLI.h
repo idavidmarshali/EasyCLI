@@ -216,69 +216,69 @@ EC_ResultEnum EC_ClearLine(EC_ClearLineEnum mode);
  *
  *  NO-RETURN
  */
-inline void EC_CursorMoveUp(int n);
+void EC_CursorMoveUp(int n);
 /* moves the cursor down by X lines
  * Parameter :
  *  - [0] int n -> move the cursor down n times
  *
  *  NO-RETURN
  */
-inline void EC_CursorMoveDown(int n);
+void EC_CursorMoveDown(int n);
 /* moves the cursor forward by X lines
  * Parameter :
  *  - [0] int n -> move the cursor forward n times
  *
  *  NO-RETURN
  */
-inline void EC_CursorMoveForward(int n);
+void EC_CursorMoveForward(int n);
 /* moves the cursor backward by X lines
  * Parameter :
  *  - [0] int n -> move the cursor backward n times
  *
  *  NO-RETURN
  */
-inline void EC_CursorMoveBackward(int n);
+void EC_CursorMoveBackward(int n);
 /* moves the cursor to next X line.
  * Parameter :
  *  - [0] int n -> move the cursor to the n line after current line
  *
  *  NO-RETURN
  */
-inline void EC_CursorMoveNextLine(int n);
+void EC_CursorMoveNextLine(int n);
 /* moves the cursor to previous X lines
  * Parameter :
  *  - [0] int n -> move the cursor to the n line before current line
  *
  *  NO-RETURN
  */
-inline void EC_CursorMovePrevLine(int n);
+void EC_CursorMovePrevLine(int n);
 /* moves the cursor to the X column with keeping cursors row position
  * Parameter :
  *  - [0] int n -> move the cursor to column n without changing its vertical position
  *
  *  NO-RETURN
  */
-inline void EC_CursorMoveHorizontalAbs(int n);
+void EC_CursorMoveHorizontalAbs(int n);
 /* Hides the cursor.
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_CursorHide(void);
+void EC_CursorHide(void);
 /* Shows the cursor if hidden.
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_CursorShow(void);
+void EC_CursorShow(void);
 /* Enables the blinking action of the cursor
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_CursorEnableBlink(void);
+void EC_CursorEnableBlink(void);
 /* disables the blinking action of the cursor
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_CursorDisableBlink(void);
+void EC_CursorDisableBlink(void);
 /* sets the position of cursor to Y row of the X column.
  *
  * Parameter :
@@ -286,18 +286,18 @@ inline void EC_CursorDisableBlink(void);
  *  - [1] int column -> column to set the cursor to.
  *  NO-RETURN
  */
-inline void EC_CursorSetPos(int row, int column);
+void EC_CursorSetPos(int row, int column);
 /* Saves the position of the cursor.
  * this save can be restored by EC_CursorRestorePos()
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_CursorSavePos(void);
+void EC_CursorSavePos(void);
 /* Restores the cursor position saved by EC_CursorSavePos()
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_CursorRestorePos(void);
+void EC_CursorRestorePos(void);
 
 // --- {Console Screen Related Functions} ---
 /* set the foreground color of the console, to a specific 16 to 24bit (RGB) color.
@@ -309,7 +309,7 @@ inline void EC_CursorRestorePos(void);
  *
  *  NO-RETURN
  */
-inline void EC_ScreenSetForegroundRGB(unsigned char R, unsigned char G, unsigned char B);
+void EC_ScreenSetForegroundRGB(unsigned char R, unsigned char G, unsigned char B);
 /* set the background color of the console, to a specific 16 to 24bit (RGB) color.
  *
  *  Parameters :
@@ -319,7 +319,7 @@ inline void EC_ScreenSetForegroundRGB(unsigned char R, unsigned char G, unsigned
  *
  *  NO-RETURN
  */
-inline void EC_ScreenSetBackgroundRGB(unsigned char R, unsigned char G, unsigned char B);
+void EC_ScreenSetBackgroundRGB(unsigned char R, unsigned char G, unsigned char B);
 /* set the foreground color of the console, to a specific 8bit color index
  * see https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit for more info and the color table
  *
@@ -328,7 +328,7 @@ inline void EC_ScreenSetBackgroundRGB(unsigned char R, unsigned char G, unsigned
  *
  *  NO-RETURN
  */
-inline void EC_ScreenSetForegroundINDX(unsigned char index);
+void EC_ScreenSetForegroundINDX(unsigned char index);
 /* set the background color of the console, to a specific 8bit color index
  * see https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit for more info and the color table
  *
@@ -337,40 +337,40 @@ inline void EC_ScreenSetForegroundINDX(unsigned char index);
  *
  *  NO-RETURN
  */
-inline void EC_ScreenSetBackgroundINDX(unsigned char index);
+void EC_ScreenSetBackgroundINDX(unsigned char index);
 /* enables the alternative screen buffer.
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_ScreenEnableAlterBuff(void);
+void EC_ScreenEnableAlterBuff(void);
 /* restores the alternative screen buffer.
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_ScreenDisableAlterBuff(void);
+void EC_ScreenDisableAlterBuff(void);
 /* resets the console character set to ASCII (better used after EC_ScreenEnableDecCharSet())
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_ScreenEnableAsciiCharSet(void);
+void EC_ScreenEnableAsciiCharSet(void);
 /* enables the Dec line drawing mode
  * NOTE - For more info : https://docs.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences#designate-character-set
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_ScreenEnableDecCharSet(void);
+void EC_ScreenEnableDecCharSet(void);
 /* scrolls up the screen X times.
  *  Parameters :
  *   -[0] int n -> the scroll up n times.
  *  NO-RETURN
  */
-inline void EC_ScreenScrollUp(int n);
+void EC_ScreenScrollUp(int n);
 /* scrolls down the screen X times.
  *  Parameters :
  *   -[0] int n -> the scroll down n times.
  *  NO-RETURN
  */
-inline void EC_ScreenScrollDown(int n);
+void EC_ScreenScrollDown(int n);
 
 // --- {Other Functions} ---
 /* sets the title of the console window to the specified string.
@@ -380,20 +380,20 @@ inline void EC_ScreenScrollDown(int n);
  *
  *  NO-RETURN
  */
-inline void EC_SetWindowTitle(char* cpTitle);
+void EC_SetWindowTitle(char* cpTitle);
 /* resets most attributes of the console.
  * this may include : Cursor Visibility - Keypad mode - Console margins - Character set - Graphics Rendition - Saved cursor state
  * NOTE - For more info : https://docs.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences#soft-reset
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_SoftReset(void);
+void EC_SoftReset(void);
 /* makes a beep sound.
  * this sound defers based on your OS
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_Beep(void);
+void EC_Beep(void);
 /* prints a hyperlinked text to the screen.
  * NOTE - This is not supported by all terminals.
  * Parameter :
@@ -402,7 +402,7 @@ inline void EC_Beep(void);
  *
  *  NO-RETURN
  */
-inline void EC_PrintHyperLink(char* cpTitle, char* cpLink);
+void EC_PrintHyperLink(char* cpTitle, char* cpLink);
 
 // --- {Formatting Functions} ---
 /* a safe function that removes the color formatting of the given string

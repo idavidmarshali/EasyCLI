@@ -191,7 +191,7 @@ EC_ResultEnum EC_PrintColored(char* cpFormat, ...){
  * Return :
  *  - EC_ResultEnum [EC_RES_Success, EC_RES_InvalidArg]
  */
-inline EC_ResultEnum EC_ClearScreen(EC_ClearScreenEnum mode){
+EC_ResultEnum EC_ClearScreen(EC_ClearScreenEnum mode){
     if (mode < 0 || mode > 3) return EC_RES_InvalidArg;
     printf(EC_CSI_ED, mode);
     return EC_RES_Success;
@@ -207,7 +207,7 @@ inline EC_ResultEnum EC_ClearScreen(EC_ClearScreenEnum mode){
  * Return :
  *  - EC_ResultEnum [EC_RES_Success, EC_RES_InvalidArg]
  */
-inline EC_ResultEnum EC_ClearLine(EC_ClearLineEnum mode){
+EC_ResultEnum EC_ClearLine(EC_ClearLineEnum mode){
     if (mode < 0 || mode > 2) return EC_RES_InvalidArg;
     printf(EC_CSI_EL, mode);
     return EC_RES_Success;
@@ -219,7 +219,7 @@ inline EC_ResultEnum EC_ClearLine(EC_ClearLineEnum mode){
  *
  *  NO-RETURN
  */
-inline void EC_CursorMoveUp(int n){
+void EC_CursorMoveUp(int n){
     printf(EC_CSI_CUU, n);
 }
 /* moves the cursor down by X lines
@@ -228,7 +228,7 @@ inline void EC_CursorMoveUp(int n){
  *
  *  NO-RETURN
  */
-inline void EC_CursorMoveDown(int n){
+void EC_CursorMoveDown(int n){
     printf(EC_CSI_CUD, n);
 }
 /* moves the cursor forward by X lines
@@ -237,7 +237,7 @@ inline void EC_CursorMoveDown(int n){
  *
  *  NO-RETURN
  */
-inline void EC_CursorMoveForward(int n){
+void EC_CursorMoveForward(int n){
     printf(EC_CSI_CUF, n);
 }
 /* moves the cursor backward by X lines
@@ -246,7 +246,7 @@ inline void EC_CursorMoveForward(int n){
  *
  *  NO-RETURN
  */
-inline void EC_CursorMoveBackward(int n){
+void EC_CursorMoveBackward(int n){
     printf(EC_CSI_CUB, n);
 }
 /* moves the cursor to next X line.
@@ -255,7 +255,7 @@ inline void EC_CursorMoveBackward(int n){
  *
  *  NO-RETURN
  */
-inline void EC_CursorMoveNextLine(int n){
+void EC_CursorMoveNextLine(int n){
     printf(EC_CSI_CNL, n);
 }
 /* moves the cursor to previous X lines
@@ -264,7 +264,7 @@ inline void EC_CursorMoveNextLine(int n){
  *
  *  NO-RETURN
  */
-inline void EC_CursorMovePrevLine(int n){
+void EC_CursorMovePrevLine(int n){
     printf(EC_CSI_CPL, n);
 }
 /* moves the cursor to the X column with keeping cursors row position
@@ -273,7 +273,7 @@ inline void EC_CursorMovePrevLine(int n){
  *
  *  NO-RETURN
  */
-inline void EC_CursorMoveHorizontalAbs(int n){
+void EC_CursorMoveHorizontalAbs(int n){
     printf(EC_CSI_CHA, n);
 }
 
@@ -281,14 +281,14 @@ inline void EC_CursorMoveHorizontalAbs(int n){
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_CursorHide(void){
+void EC_CursorHide(void){
     printf(EC_CSI_DECTCEM_L);
 }
 /* Shows the cursor if hidden.
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_CursorShow(void)
+void EC_CursorShow(void)
 {
     printf(EC_CSI_DECTCEM_H);
 }
@@ -296,14 +296,14 @@ inline void EC_CursorShow(void)
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_CursorEnableBlink(void) {
+void EC_CursorEnableBlink(void) {
     printf(EC_CSI_TCEB);
 }
 /* disables the blinking action of the cursor
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_CursorDisableBlink(void){
+void EC_CursorDisableBlink(void){
     printf(EC_CSI_TCDB);
 }
 /* sets the position of cursor to Y row of the X column.
@@ -313,7 +313,7 @@ inline void EC_CursorDisableBlink(void){
  *  - [1] int column -> column to set the cursor to.
  *  NO-RETURN
  */
-inline void EC_CursorSetPos(int row, int column){
+void EC_CursorSetPos(int row, int column){
     printf(EC_CSI_CUP, row, column);
 }
 /* Saves the position of the cursor.
@@ -321,14 +321,14 @@ inline void EC_CursorSetPos(int row, int column){
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_CursorSavePos(void){
+void EC_CursorSavePos(void){
     printf(EC_CSI_SCP);
 }
 /* Restores the cursor position saved by EC_CursorSavePos()
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_CursorRestorePos(void){
+void EC_CursorRestorePos(void){
     printf(EC_CSI_RCP);
 }
 
@@ -341,7 +341,7 @@ inline void EC_CursorRestorePos(void){
  *
  *  NO-RETURN
  */
-inline void EC_ScreenSetForegroundRGB(unsigned char R, unsigned char G, unsigned char B) {
+void EC_ScreenSetForegroundRGB(unsigned char R, unsigned char G, unsigned char B) {
     printf(EC_CSI_FRGB, R, G, B);
 }
 /* set the background color of the console, to a specific 16 to 24bit (RGB) color.
@@ -353,7 +353,7 @@ inline void EC_ScreenSetForegroundRGB(unsigned char R, unsigned char G, unsigned
  *
  *  NO-RETURN
  */
-inline void EC_ScreenSetBackgroundRGB(unsigned char R, unsigned char G, unsigned char B){
+void EC_ScreenSetBackgroundRGB(unsigned char R, unsigned char G, unsigned char B){
     printf(EC_CSI_BRGB, R, G, B);
 }
 /* set the foreground color of the console, to a specific 8bit color index
@@ -364,7 +364,7 @@ inline void EC_ScreenSetBackgroundRGB(unsigned char R, unsigned char G, unsigned
  *
  *  NO-RETURN
  */
-inline void EC_ScreenSetForegroundINDX(unsigned char index){
+void EC_ScreenSetForegroundINDX(unsigned char index){
     printf(EC_CSI_FINDX, index);
 }
 /* set the background color of the console, to a specific 8bit color index
@@ -375,28 +375,28 @@ inline void EC_ScreenSetForegroundINDX(unsigned char index){
  *
  *  NO-RETURN
  */
-inline void EC_ScreenSetBackgroundINDX(unsigned char index){
+void EC_ScreenSetBackgroundINDX(unsigned char index){
     printf(EC_CSI_BINDX, index);
 }
 /* enables the alternative screen buffer.
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_ScreenEnableAlterBuff(void){
+void EC_ScreenEnableAlterBuff(void){
     printf(EC_CSI_EASB);
 }
 /* restores the alternative screen buffer.
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_ScreenDisableAlterBuff(void){
+void EC_ScreenDisableAlterBuff(void){
     printf(EC_CSI_DASB);
 }
 /* resets the console character set to ASCII (better used after EC_ScreenEnableDecCharSet())
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_ScreenEnableAsciiCharSet(void){
+void EC_ScreenEnableAsciiCharSet(void){
     printf(EC_FE_ASCIILD);
 }
 /* enables the Dec line drawing mode
@@ -404,7 +404,7 @@ inline void EC_ScreenEnableAsciiCharSet(void){
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_ScreenEnableDecCharSet(void){
+void EC_ScreenEnableDecCharSet(void){
     printf(EC_FE_DECLD);
 }
 /* scrolls up the screen X times.
@@ -412,7 +412,7 @@ inline void EC_ScreenEnableDecCharSet(void){
  *   -[0] int n -> the scroll up n times.
  *  NO-RETURN
  */
-inline void EC_ScreenScrollUp(int n) {
+void EC_ScreenScrollUp(int n) {
     printf(EC_CSI_SU, n);
 }
 /* scrolls down the screen X times.
@@ -420,7 +420,7 @@ inline void EC_ScreenScrollUp(int n) {
  *   -[0] int n -> the scroll down n times.
  *  NO-RETURN
  */
-inline void EC_ScreenScrollDown(int n) {
+void EC_ScreenScrollDown(int n) {
     printf(EC_CSI_SD, n);
 }
 
@@ -431,7 +431,7 @@ inline void EC_ScreenScrollDown(int n) {
  *
  *  NO-RETURN
  */
-inline void EC_SetWindowTitle(char* cpTitle){
+void EC_SetWindowTitle(char* cpTitle){
     printf(EC_OSC_SWT, cpTitle);
 }
 /* resets most attributes of the console.
@@ -440,7 +440,7 @@ inline void EC_SetWindowTitle(char* cpTitle){
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_SoftReset(void){
+void EC_SoftReset(void){
     printf(EC_CSI_DECSTR);
 }
 /* makes a beep sound.
@@ -448,7 +448,7 @@ inline void EC_SoftReset(void){
  *  NO-PARAM
  *  NO-RETURN
  */
-inline void EC_Beep(void){
+void EC_Beep(void){
     printf(EC_C0_BELL);
 }
 /* prints a hyperlinked text to the screen.
@@ -459,7 +459,7 @@ inline void EC_Beep(void){
  *
  *  NO-RETURN
  */
-inline void EC_PrintHyperLink(char* cpTitle, char* cpLink){
+void EC_PrintHyperLink(char* cpTitle, char* cpLink){
     printf(EC_OSC_HL, cpLink, cpTitle);
 }
 
